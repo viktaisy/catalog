@@ -1,0 +1,36 @@
+<%- include('particles/header.ejs') %>
+
+<%- include('particles/navigation.ejs') %>
+
+<% for (let i = 0; i < items.length; i++) { %>
+
+    <div  class="section">
+        <a class="section__link" style="color:black;" href="/items/<%= items[i].id %>">
+            <h2 class="section__title" style="color:black ;"><%= items[i].title %></h2>
+            <img class="section__image" src="img/<%= items[i].image %>">
+            <h2>Семья и родная Феодосия</h2>
+            <h2 class="section__description" style="color:black ;"><%= items[i].description %></h2>
+            <h2>Учеба и зависть учителя</h2>
+            <h2 class="section__description" style="color:black ;"><%= items[i].info %></h2>
+            <h2>Взлет и ложная гибель</h2>
+            <h2 class="section__description" style="color:black ;"><%= items[i].inform %></h2>
+            <h2>Слава и семья</h2>
+            <h2 class="section__description" style="color:black ;"><%= items[i].information %></h2>
+            <h2>Старость и смерть</h2>
+            <h2 class="section__description" style="color:black ;"><%= items[i].inf %></h2>
+        </a>
+
+        <% if (auth) { %>
+        <form method="post" action="/home-delete" class="form_group_all">
+            <input value="<%= items[i].id %>" class="form-group__input" type="text" id="id" name="id"
+            placeholder="" style="display: none;">
+            <input class="form-button-delete" type="submit" value="Удалить">
+        </form>
+        <% } else { %>
+            <h2></h2>
+            <% } %>
+    </div>
+
+<% } %>
+
+<%- include('particles/footer.ejs') %>

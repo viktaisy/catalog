@@ -1,0 +1,198 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(167, 105, 34);
+  background-size: auto;
+}
+
+.navigation {
+  color: black;
+  width: 100%;
+}
+
+li {
+  padding: 10px;
+}
+.section__link {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-size: 20px;
+  width: 10%;
+}
+
+.section__nazvanie {
+  text-align: center;
+  margin: 25px;
+}
+
+.section {
+  padding: 20px;
+  display: block;
+text-align: center;
+  background-color: rgb(167, 105, 34);
+  color: white;
+
+}
+
+.section__link {
+  text-decoration: none;
+}
+
+.section__image {
+  text-align: center;
+  width: 400px;
+  height: auto;
+ 
+}
+
+.section__title {
+  color: white;
+  margin-top: 0;
+
+}
+
+.section__description {
+
+  margin-right: auto;
+  font-weight: normal;
+  font-style: italic;
+ 
+}
+
+.form__user {
+  background-color: black;
+  width: 100%;
+}
+
+.form_group_all {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(167, 105, 34);
+
+  text-align: center;
+  width: 100%;
+}
+
+.form-group__text {
+  font-style: inherit;
+  font-size: 25px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group__label {
+  display: block;
+  margin-bottom: 3px;
+  font-weight: Bold;
+  letter-spacing: 3.5px;
+  font-style: normal;
+}
+.form-group__labels {
+  display: block;
+  margin-bottom: 3px;
+  font-weight: Bold;
+  letter-spacing: 3.5px;
+  font-style: normal;
+}
+
+
+.form-group__input {
+  padding: 7px;
+}
+
+.form-button {
+  color: white;
+  padding: 7px;
+  background-color: blue;
+  margin: 20px 20px;
+}
+
+.form-button:hover {
+  cursor: pointer;
+}
+
+.form-button-delete {
+  color: white;
+  padding: 7px;
+  border-color: rgb(147, 136, 136);
+  background-color: rgb(255, 0, 0);
+  margin-bottom: 20px;
+}
+
+.form-button-delete:hover {
+  cursor: pointer;
+}
+
+form {
+  margin-top: 15px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+.navbar {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.menu {
+  list-style: none; /*убираем маркеры списка*/
+  margin: 0; /*убираем отступы*/
+  padding-left: 0; /*убираем отступы*/
+  margin-top:25px; /*делаем отступ сверху*/
+  background:#819A32; /*добавляем фон всему меню*/
+  height: 50px; /*задаем высоту*/
+}
+.you {
+  text-decoration: none; /*убираем подчеркивание текста ссылок*/
+  background:#819A32; /*добавляем фон к пункту меню*/
+  color:#fff; /*меняем цвет ссылок*/
+  padding:0px 15px; /*добавляем отступ*/
+  font-family: arial; /*меняем шрифт*/
+  line-height:50px; /*ровняем меню по вертикали*/
+  display: block; 
+  border-right: 1px solid #677B27; /*добавляем бордюр справа*/
+  transition: all 0.3s 0.01s ease;
+  -webkit-transition: all 0.3s 0.01s ease;
+}
+.you:hover {
+  background:#D43737;/*добавляем эффект при наведении*/
+}
+li {
+  float:left; /*Размещаем список горизонтально для реализации меню*/
+  position:relative; /*задаем позицию для позиционирования*/
+  list-style-type: none;
+}
+     
+    /*Стили для скрытого выпадающего меню*/
+    li > ul {
+        position:absolute;
+        top:25px;
+        display:none;   
+    }
+     
+    /*Делаем скрытую часть видимой*/
+    li:hover > ul {
+        display:block; 
+        width:250px;  /*Задаем ширину выпадающего меню*/      
+    }
+   li:hover > ul > li {
+        float:none; /*Убираем горизонтальное позиционирование*/
+    }
+    .val{
+  padding: 20px;
+  display: block;
+  text-align: center;
+  background-color: rgb(255, 182, 86);
+    }
+    .val__img{
+      width: 600px;
+    }
+    .catalog{
+      display: inline-block;
+    }

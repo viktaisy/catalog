@@ -1,0 +1,43 @@
+<%- include('particles/header.ejs') %>
+
+    <%- include('particles/navigation.ejs') %>
+    <% if (auth) { %>
+
+        <div class="section">
+            <h2 class="section__title" style="color:black;"> <%= item.title %></h2>
+            <img class="section__image" src="/img/<%= item.image %>">
+            <p class="section__description" style="color:black ;"> <%= item.description %></p>
+
+        </div>
+
+        <div class="form__user">
+
+            <form action="/update" method="post" class="form_group_all">
+                <label class="form-group__text" style="color:black;" for="title">Редатирование</label>
+                <div class="form-group">
+                    <label class="form-group__label" style="color:black;" for="title">Название</label>
+                    <input value="<%= item.title %>" class="form-group__input" type="text" id="title" name="title"
+                        placeholder="title">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-group__label" style="color:black;" for="title">Описание</label>
+                    <input value="<%= item.description %>" class="form-group__input" type="text" id="description"
+                        name="description" placeholder="Описание">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-group__label" style="color:black;" for="image">Изображение</label>
+                    <input value="<%= item.image %>" class="form-group__input" type="text" id="image" name="image"
+                        placeholder="image">
+                </div>
+                <input value="<%= item.id %>" class="form-group__input" type="text" id="id" name="id" placeholder=""
+                    style="display: none;">
+                <input class="form-button" type="submit" value="Обновить">
+
+
+            </form>
+            <% } else { %>
+                <% } %>
+        </div>
+        <%- include('particles/footer.ejs') %>
