@@ -19,16 +19,50 @@
             <h2>Старость и смерть</h2>
             <h2 class="section__description" style="color:black ;"><%= items[i].inf %></h2>
         </a>
-
         <% if (auth) { %>
-        <form method="post" action="/home-delete" class="form_group_all">
-            <input value="<%= items[i].id %>" class="form-group__input" type="text" id="id" name="id"
-            placeholder="" style="display: none;">
-            <input class="form-button-delete" type="submit" value="Удалить">
-        </form>
-        <% } else { %>
-            <h2></h2>
-            <% } %>
+            <div class="form__user">
+    
+                <form action="/update" method="post" class="form_group_all">
+                    <label class="form-group__text" style="color:black;" for="title">Редатирование</label>
+                    <div class="form-group">
+                        <label class="form-group__label" style="color:black;" for="title">Название</label>
+                        <input value="<%= items[i].title %>" class="form-group__input" type="text" id="title" name="title"
+                            placeholder="title">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group__label" style="color:black;" for="image">Изображение</label>
+                        <input value="<%= items[i].image %>" class="form-group__input" type="text" id="image" name="image"
+                            placeholder="image">
+                    </div> 
+                    <div class="form-group">
+                        <label class="form-group__label" style="color:black;" for="title">Семья и родная Феодосия</label>
+                        <input value="<%= items[i].description %>" class="form-group__input" type="text" id="description"
+                            name="description" placeholder="Семья и родная Феодосия">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group__label" style="color:black;" for="title">Учеба и зависть учителя</label>
+                        <input value="<%= items[i].info %>" class="form-group__input" type="text" id="info"
+                            name="info" placeholder="Учеба и зависть учителя">
+                    </div>  <div class="form-group">
+                        <label class="form-group__label" style="color:black;" for="title">Взлет и ложная гибель</label>
+                        <input value="<%= items[i].inform %>" class="form-group__input" type="text" id="inform"
+                            name="inform" placeholder="Взлет и ложная гибель">
+                    </div>  <div class="form-group">
+                        <label class="form-group__label" style="color:black;" for="title">Слава и семья</label>
+                        <input value="<%= items[i].information %>" class="form-group__input" type="text" id="information"
+                            name="information" placeholder="Слава и семья">
+                    </div>  <div class="form-group">
+                        <label class="form-group__label" style="color:black;" for="title">Старость и смерть</label>
+                        <input value="<%= items[i].inf %>" class="form-group__input" type="text" id="inf"
+                            name="inf" placeholder="Старость и смерть">
+                    </div>
+                    <input value="<%= items[i].id %>" class="form-group__input" type="text" id="id" name="id" placeholder=""
+                        style="display: none;">
+                    <input class="form-button" type="submit" value="Отредактировать">
+           
+            
+                <% } else { %>
+                    <% } %>
     </div>
 
 <% } %>

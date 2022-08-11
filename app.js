@@ -58,21 +58,6 @@ app.get('/', (req, res) => {
   });
 })
 
-app.get('/items/:id', (req, res) => {
-  connection.query("SELECT * FROM items WHERE id=?", [req.params.id],
-    (err, data, fields) => {
-      if (err) throw err;
-      connection.query("SELECT * FROM cart", (err, dataCart, fields) => {
-        res.render('item', {
-          item: data[0],
-          titles: dataCart,
-          auth: req.session.auth
-        })
-      });
-    });
-})
-
-
 app.get('/catalog', (req, res) => {
   connection.query("SELECT * FROM cart", (err, data, fields) => {
     if (err) throw err;
@@ -84,6 +69,20 @@ app.get('/catalog', (req, res) => {
       });
     });
   });
+})
+
+app.get('/cart/:id', (req, res) => {
+  connection.query("SELECT * FROM cart WHERE id=?", [req.params.id],
+    (err, data, fields) => {
+      if (err) throw err;
+      connection.query("SELECT * FROM cart", (err, dataCart, fields) => {
+        res.render('cats', {
+          cart: data[0],
+          titles: dataCart,
+          auth: req.session.auth
+        })
+      });
+    });
 })
 
 app.get('/auth', (req, res) => {
@@ -105,163 +104,6 @@ app.get('/add', (req, res) => {
 })
 
 
-app.get('/val', (req, res) => {
-  connection.query("SELECT * FROM cart WHERE id=1", (err, data, fields) => {
-    if (err) throw err;
-    connection.query("SELECT * FROM cart", (err, dataCart, fields) => {
-      res.render('val', {
-        cart: data,
-        titles: dataCart,
-        auth: req.session.auth
-      });
-    });
-  });
-})
-
-app.get('/more', (req, res) => {
-  connection.query("SELECT * FROM cart WHERE id=2", (err, data, fields) => {
-    if (err) throw err;
-    connection.query("SELECT * FROM cart", (err, dataCart, fields) => {
-      res.render('more', {
-        cart: data,
-        titles: dataCart,
-        auth: req.session.auth
-      });
-    });
-  });
-})
-
-app.get('/bosfor', (req, res) => {
-  connection.query("SELECT * FROM cart WHERE id=3", (err, data, fields) => {
-    if (err) throw err;
-    connection.query("SELECT * FROM cart", (err, dataCart, fields) => {
-      res.render('bosfor', {
-        cart: data,
-        titles: dataCart,
-        auth: req.session.auth
-      });
-    });
-  });
-})
-
-app.get('/gnev', (req, res) => {
-  connection.query("SELECT * FROM cart WHERE id=4", (err, data, fields) => {
-    if (err) throw err;
-    connection.query("SELECT * FROM cart", (err, dataCart, fields) => {
-      res.render('gnev', {
-        cart: data,
-        titles: dataCart,
-        auth: req.session.auth
-      });
-    });
-  });
-})
-
-app.get('/brig', (req, res) => {
-  connection.query("SELECT * FROM cart WHERE id=5", (err, data, fields) => {
-    if (err) throw err;
-    connection.query("SELECT * FROM cart", (err, dataCart, fields) => {
-      res.render('brig', {
-        cart: data,
-        titles: dataCart,
-        auth: req.session.auth
-      });
-    });
-  });
-})
-
-app.get('/egipet', (req, res) => {
-  connection.query("SELECT * FROM cart WHERE id=6", (err, data, fields) => {
-    if (err) throw err;
-    connection.query("SELECT * FROM cart", (err, dataCart, fields) => {
-      res.render('egipet', {
-        cart: data,
-        titles: dataCart,
-        auth: req.session.auth
-      });
-    });
-  });
-})
-
-app.get('/feodosia', (req, res) => {
-  connection.query("SELECT * FROM cart WHERE id=7", (err, data, fields) => {
-    if (err) throw err;
-    connection.query("SELECT * FROM cart", (err, dataCart, fields) => {
-      res.render('feodosia', {
-        cart: data,
-        titles: dataCart,
-        auth: req.session.auth
-      });
-    });
-  });
-})
-
-
-app.get('/boi', (req, res) => {
-  connection.query("SELECT * FROM cart WHERE id=8", (err, data, fields) => {
-    if (err) throw err;
-    connection.query("SELECT * FROM cart", (err, dataCart, fields) => {
-      res.render('boi', {
-        cart: data,
-        titles: dataCart,
-        auth: req.session.auth
-      });
-    });
-  });
-})
-
-app.get('/pushkin', (req, res) => {
-  connection.query("SELECT * FROM cart WHERE id=9", (err, data, fields) => {
-    if (err) throw err;
-    connection.query("SELECT * FROM cart", (err, dataCart, fields) => {
-      res.render('pushkin', {
-        cart: data,
-        titles: dataCart,
-        auth: req.session.auth
-      });
-    });
-  });
-})
-
-
-app.get('/korabl', (req, res) => {
-  connection.query("SELECT * FROM cart WHERE id=10", (err, data, fields) => {
-    if (err) throw err;
-    connection.query("SELECT * FROM cart", (err, dataCart, fields) => {
-      res.render('korabl', {
-        cart: data,
-        titles: dataCart,
-        auth: req.session.auth
-      });
-    });
-  });
-})
-
-app.get('/tiflis', (req, res) => {
-  connection.query("SELECT * FROM cart WHERE id=11", (err, data, fields) => {
-    if (err) throw err;
-    connection.query("SELECT * FROM cart", (err, dataCart, fields) => {
-      res.render('tiflis', {
-        cart: data,
-        titles: dataCart,
-        auth: req.session.auth
-      });
-    });
-  });
-})
-
-app.get('/crush', (req, res) => {
-  connection.query("SELECT * FROM cart WHERE id=12", (err, data, fields) => {
-    if (err) throw err;
-    connection.query("SELECT * FROM cart", (err, dataCart, fields) => {
-      res.render('crush', {
-        cart: data,
-        titles: dataCart,
-        auth: req.session.auth
-      });
-    });
-  });
-})
 
 app.get('/lock', isAuth, (req, res) => {
   connection.query("SELECT * FROM cart", (err, dataCart, fields) => {
@@ -295,28 +137,27 @@ app.post('/register', (req, res) => {
     });
 });
 
- app.post('/login', (req, res) => {
+app.post('/login', (req, res) => {
   connection.query(
     "SELECT * FROM users WHERE name=? and password=?",
     [[req.body.name], [req.body.password]], (err, data, fields) => {
       if (err) throw err;
-        if(data[0].name == req.body.name && data[0].password == req.body.password)
-        {
-          console.log("Успешный вход в систему");
-          req.session.auth = true;
-          res.redirect('/')
-        }
-        else
-        {
-          res.redirect('/')
-        }  })
-      });
-      app.get('/logout', (req, res) => {
-        req.session.auth = false;
+      if (data[0].name == req.body.name && data[0].password == req.body.password) {
+        console.log("Успешный вход в систему");
+        req.session.auth = true;
         res.redirect('/')
-      });
-      
-    
+      }
+      else {
+        res.redirect('/')
+      }
+    })
+});
+app.get('/logout', (req, res) => {
+  req.session.auth = false;
+  res.redirect('/')
+});
+
+
 app.post('/home-delete', (req, res) => {
   connection.query(
     "DELETE FROM items WHERE id=?;",
@@ -338,7 +179,16 @@ app.post('/homs-delete', (req, res) => {
 
 app.post('/update', (req, res) => {
   connection.query(
-    "UPDATE items SET title=?, description=?, image=?  WHERE id=?;",
+    "UPDATE items SET title=?, description=?, image=?,info=?,inform=?,information=?,inf=? WHERE id=?;",
+    [[req.body.title], [req.body.description], [req.body.image], [req.body.info], [req.body.inform], [req.body.information], [req.body.inf], [req.body.id]], (err, data, fields) => {
+      if (err) throw err;
+
+      res.redirect('/')
+    });
+})
+app.post('/update', (req, res) => {
+  connection.query(
+    "UPDATE cart SET title=?, description=?, image=? WHERE id=?;",
     [[req.body.title], [req.body.description], [req.body.image], [req.body.id]], (err, data, fields) => {
       if (err) throw err;
 

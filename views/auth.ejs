@@ -3,31 +3,31 @@
 <%- include('particles/navigation.ejs') %>
 
 <form action="/login" method="post">
-    <div class="form-group">
-        <label class="form-group__labels" for="name">Имя пользователя</label>
-        <input class="form-group__input" type="text" id="name" name="name" placeholder="Имя пользователя">
-    </div>
+    <div class="log">
+        <h2 class="log__s">Вход</h2>
+        <label class="log__n" for="name">Имя пользователя</label>
+        <input class="log__in" type="text" id="name" name="name" placeholder="Имя пользователя">
+   
+        <label class="log__n" for="password">Пароль</label>
+        <input class="log__in" type="password" id="password" name="password" placeholder="Пароль">
+   
 
-    <div class="form-group">
-        <label class="form-group__label" for="password">Пароль</label>
-        <input class="form-group__input" type="password" id="password" name="password" placeholder="Пароль">
-    </div>
-
-    <input class="form-button" type="submit" value="Войти">
+    <input class="log__button" type="submit" value="   Войти в систему   ">
+ </div>
 </form>
 
 <form action="/register" method="post">
-    <div class="form-group">
-        <label class="form-group__labels" for="name">Имя пользователя</label>
-        <input class="form-group__input" type="text" id="name" name="name" placeholder="Имя пользователя">
-    </div>
+    <div class="log">
+        <h2 class="log__s">Регистрация</h2>
+        <label class="log__n" for="name">Имя пользователя</label>
+        <input class="log__in" type="text" id="name" name="name" placeholder="Имя пользователя" >
+   
+        <label class="log__n" for="password">Пароль</label>
+        <input class="log__in" type="password" id="password" name="password" placeholder="Пароль">
+   
 
-    <div class="form-group">
-        <label class="form-group__label" for="password">Пароль</label>
-        <input class="form-group__input" type="password" id="password" name="password" placeholder="Пароль">
-    </div>
-
-    <input class="form-button" type="submit" value="Зарегистрироваться">
+    <input class="log__button" type="submit" value="Зарегистрироваться">
+ </div>
 </form>
 
 <%- include('particles/footer.ejs') %>

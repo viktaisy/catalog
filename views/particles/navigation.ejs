@@ -3,21 +3,8 @@
   <li><a class="you" href="/catalog">Картины Айвазовского</a>
     <ul>
       <% for (let i = 0; i < titles.length; i++) { %>
-        
-        <li><a class="you"><%= titles[i].title %></a></li>
-      <!-- <li><a class="you" href="/val">9 Вал</a></li>
-      <li><a class="you" href="/more">Черное море</a></li>
-      <li><a class="you" href="/bosfor">Лунная ночь на Босфоре</a></li>
-      <li><a class="you" href="/gnev">Гнев морей</a></li>
-      <li><a class="you" href="/brig">Бриг «Меркурий», атакованный двумя турецкими кораблями</a></li>
-      <li><a class="you" href="/egipet">Пирамиды</a></li>
-      <li><a class="you" href="/feodosia">Феодосия. Лунная ночь</a></li>
-      <li><a class="you" href="/boi">Чесменский бой</a></li>
-      <li><a class="you" href="/pushkin">Пушкин на берегу Чёрного моря</a></li>
-      <li><a class="you" href="/korabl">Тонущий корабль</a></li>
-      <li><a class="you" href="/tiflis">Вид Тифлиса от Сейд-Абаза</a></li>
-      <li><a class="you" href="/crush">После кораблекрушения</a></li> -->
-      <% } %>
+        <li><a class="you" href="/cart/<%= titles[i].id %>"><%= titles[i].title %></a></li>
+        <% } %>
     </ul>
   </li>
   <% if (auth) { %>
@@ -26,5 +13,5 @@
   <% } else { %>
   <li><a class="you" href="/auth">Авторизация</a></li>
   <% } %>
-  <!-- <li><a class="you" href="/lock">Нет доступа</a></li> -->
+ 
 </ul>
